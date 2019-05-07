@@ -21,11 +21,43 @@ public class MajorityElement {
 		return Integer.MIN_VALUE;
 	}
 	
+	
+	static Integer getMajorityIndexMoore(Integer[] arr){
+		int majIndex=0;
+		int count=1;
+		for(int i=1;i<arr.length;i++){
+			if(arr[i]==arr[i-1]){
+				count++;				
+			}else{
+				count--;
+			}
+			if(count==0){
+				majIndex=i;
+				count=0;
+			}
+		}
+		return majIndex;
+	}
+	
+	static Integer getMajorityElementMoore(Integer[] arr){
+		int majIndex = getMajorityIndexMoore(arr);
+		int element = arr[majIndex];
+		int count=0;
+		for(int i=0;i<arr.length;i++){
+			if(arr[i]==element)
+				count++;
+		}
+		if(count>arr.length/2)
+			return element;
+		
+		return Integer.MIN_VALUE;
+	}
+	
 
 	public static void main(String[] args) {
 
-		Integer[] arr = { 1, 2, 3, 3, 3, 3 };
-		System.out.println(getMajority(arr));
+		Integer[] arr = { 4, 4, 3, 4, 3, 4 };
+		System.out.println(getMajorityElementMoore(arr));
 
 	}
 }
