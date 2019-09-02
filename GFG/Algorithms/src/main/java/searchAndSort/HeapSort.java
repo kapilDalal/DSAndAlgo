@@ -11,6 +11,7 @@ public class HeapSort {
 	
 	static void sort(Integer[] arr){
 		
+		//we first need to heapify to get largest/smallest element at the root
 		for(int i=arr.length/2-1;i>=0;i--)
 			maxHeapify(arr,arr.length,i);
 		
