@@ -221,6 +221,8 @@ public class SingleLinkedListOperations {
 
 		return head;
 	}
+	
+	
 
 	Node mergeSortedLinkedList(Node head1, Node head2) {
 		Node master;
@@ -459,6 +461,57 @@ public class SingleLinkedListOperations {
 		return temp.next;
 	}
 
+	public Node swapNodes3Sept(Node head,int key1,int key2){
+		
+		Node currX = getNode(head,key1);
+		Node currY = getNode(head,key2);
+		
+		Node prevX = getPrev(head,currX);
+		Node prevY = getPrev(head,currY);
+		
+		if(prevX!=null)
+			prevX.next = currY;
+		else
+			head = currY;
+		
+		if(prevY!=null)
+			prevY.next = currX;
+		else
+			head = currX;
+		
+		
+		Node temp = currX.next;
+		currX.next = currY.next;
+		currY.next = temp;
+		
+		
+		return head;
+	} 
+	
+	public void reverseRecursive3Sep(Node curr,Node prev){
+		if(curr.next==null){
+			head = curr;
+			curr.next = prev;
+			return;
+		}
+		reverseRecursive3Sep(curr.next,curr);
+		curr.next = prev;			
+	}
+	static public void reverseIterative(Node head){
+		Node curr = head;
+		Node prev = null;
+		Node next = null;
+		
+		while(curr!=null){
+			next = curr.next;
+			curr.next = prev;
+			prev = curr;
+			curr = next;
+		}
+		SingleLinkedListOperations.head = prev;
+	}
+	
+	
 	public static void main(String[] args) {
 
 		SingleLinkedListOperations linkedList = new SingleLinkedListOperations();

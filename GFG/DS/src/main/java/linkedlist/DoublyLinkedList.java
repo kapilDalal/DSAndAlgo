@@ -213,6 +213,9 @@ public class DoublyLinkedList {
 	}
 	
 	
+	
+	
+	
 	public static void main(String[] args) {
 		DoublyLinkedList dll = new DoublyLinkedList();
 		/*dll.head = dll.insertAtStart(dll.head, 5);
@@ -241,3 +244,14 @@ public class DoublyLinkedList {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
