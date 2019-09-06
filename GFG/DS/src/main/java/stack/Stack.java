@@ -2,11 +2,11 @@ package stack;
 
 public class Stack {
 
-	private Integer[] arr;
+	private Character[] arr;
 	private int top;
 
 	public Stack(int capacity) {
-		arr = new Integer[capacity];
+		arr = new Character[capacity];
 		top = -1;
 	}
 
@@ -16,7 +16,7 @@ public class Stack {
 		return false;
 	}
 
-	public boolean push(int data) {
+	public boolean push(char data) {
 		
 		if (top < arr.length-1) {
 			top = top + 1;
@@ -26,18 +26,18 @@ public class Stack {
 		return false;
 	}
 
-	public Integer pop() {
+	public char pop() {
 		if (top == -1)
 			throw new ArrayIndexOutOfBoundsException();
-		int popped = arr[top];
+		char popped = arr[top];
 		top--;
 		return popped;
 	}
 
-	public Integer peek() {
+	public char peek() {
 		if (top == -1)
 			throw new ArrayIndexOutOfBoundsException();
-		int popped = arr[top];
+		char popped = arr[top];
 		return popped;
 	}
 
