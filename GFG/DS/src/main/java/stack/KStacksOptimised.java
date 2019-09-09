@@ -59,6 +59,10 @@ public class KStacksOptimised {
 	}
 
 	public static void main(String[] args) {
+		
+		// for detailed explaination https://www.youtube.com/watch?v=DxW7VAsdX0o
+		
+		
 		KStacksOptimised threeStacks = new KStacksOptimised(6, 3);
 		threeStacks.push(1, 3);
 		threeStacks.push(1, 6);
