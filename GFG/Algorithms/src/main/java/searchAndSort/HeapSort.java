@@ -12,10 +12,11 @@ public class HeapSort {
 	static void sort(Integer[] arr){
 		
 		//we first need to heapify to get largest/smallest element at the root
+		//this is building of heap
 		for(int i=arr.length/2-1;i>=0;i--)
 			maxHeapify(arr,arr.length,i);
 		
-		
+		//after we have built up the heap now we can sort the elements
 		for(int i=arr.length-1;i>=0;i--){
 			swap(arr,0,i);
 			maxHeapify(arr, i, 0);
