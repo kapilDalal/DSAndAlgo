@@ -10,6 +10,18 @@ public class Queue {
 		rear = front = size = 0;
 
 	}
+	
+	public boolean isEmpty(){
+		if(size==0)
+			return true;
+		return false;
+	}
+	
+	public boolean isFull(){
+		if (size == queueData.length)
+			return true;
+		return false;
+	}
 
 	public void enqueue(int data) {
 

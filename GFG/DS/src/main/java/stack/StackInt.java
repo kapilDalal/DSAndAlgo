@@ -25,6 +25,12 @@ public class StackInt {
 		}
 		return false;
 	}
+	
+	public boolean isFull(){
+		if(top == arr.length)
+			return true;
+		return false;
+	}
 
 	public Integer pop() {
 		if (top == -1)
