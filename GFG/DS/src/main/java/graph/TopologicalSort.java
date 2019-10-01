@@ -13,7 +13,7 @@ public class TopologicalSort {
 		
 		while(iterator.hasNext()){
 			int next = iterator.next();
-			if(!visited[i])
+			if(!visited[next])
 				sortUtil(g, visited, s, next);
 		}
 		
