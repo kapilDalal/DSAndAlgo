@@ -1,5 +1,7 @@
 package backtracking;
 
+import java.util.Date;
+
 public class NQueen {
 	
 	boolean isValid(int cuurentQueen,int cuurentQueenPos,Integer[] pos){
@@ -11,7 +13,7 @@ public class NQueen {
 	}
 	
 	
-	int next(int q,Integer[] posQueens){
+	int nextSafe(int q,Integer[] posQueens){
 	
 		int pos = -1;
 		if(posQueens[q]==-1)
@@ -36,7 +38,7 @@ public class NQueen {
 			pos[i] = -1;
 		}
 		while(queen<pos.length){
-			int position = next(queen,pos);
+			int position = nextSafe(queen,pos);
 			if(position==-1){				
 				pos[queen-1] = pos[queen-1]+1;
 				pos[queen] = -1;
@@ -46,22 +48,44 @@ public class NQueen {
 				pos[queen]=position;
 				queen = queen+1;
 			}
+			if(queen<0){
+				System.out.println("no solution");
+				return;
+			}
 		}
 		for(int i=0;i<sizeOfBoard;i++){
 			for(int j=0;j<sizeOfBoard;j++){
 				if(j==pos[i])
-					System.out.print(1+"\t");
+					System.out.print("Q\t");
 				else
-					System.out.print(0+"\t");
+					System.out.print("-\t");
 			}
 			System.out.println();
 		}
 			
 	}
 	
+	static void permutationOfString(String soFar,String remaining){
+		if(remaining.length()==0)
+			System.out.println(soFar);
+		else{
+			for(int i=0;i<remaining.length();i++){				
+				permutationOfString(soFar+remaining.charAt(i), remaining.substring(0,i)+remaining.substring(i+1,remaining.length()));
+			}
+		}
+	}
+	
 	public static void main(String[] args) {
-		NQueen nq = new NQueen();
-		nq.setQueensOnBoard(4);
+		/*NQueen nq = new NQueen();
+		long millis = System.currentTimeMillis();
+		Date date = new Date(millis);
+		System.out.println(date);
+		nq.setQueensOnBoard(40);
+		System.out.println();
+		long millis1 = System.currentTimeMillis();
+		Date date1 = new Date(millis1);
+		System.out.println(date1);*/
+		permutationOfString("", "abcd");
 	}
 
 }
