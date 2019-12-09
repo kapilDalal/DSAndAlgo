@@ -9,7 +9,7 @@ public class PalindromeString {
 		while(i<j){
 			char chI = A.charAt(i);
 			char chJ = A.charAt(j);
-			if(Character.isDigit(chI) || Character.isAlphabetic(chJ))
+			if(Character.isDigit(chI) || Character.isDigit(chJ))
 				return 0;
 			if(!Character.isAlphabetic(chI)){
 				i++;
