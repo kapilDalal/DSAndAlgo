@@ -3,9 +3,7 @@ package strings;
 public class ReverseTheString {
 	static public String solve(String A) {
 		String res = "";
-		String[] split = A.split(" ");
-		/*for( int i=split.length-1;i>=0;i--)
-			res = res + split[i]+" ";*/
+		
 		char[] charArray = A.toCharArray();
 		
 		char[] rev = new char[charArray.length];
