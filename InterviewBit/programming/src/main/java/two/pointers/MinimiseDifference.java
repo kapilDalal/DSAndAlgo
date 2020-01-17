@@ -28,7 +28,7 @@ public class MinimiseDifference {
 			else
 				k++;
 		}
-
+		
 		return ans;
 	}
 
