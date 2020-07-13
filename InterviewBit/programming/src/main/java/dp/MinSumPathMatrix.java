@@ -21,12 +21,7 @@ public class MinSumPathMatrix {
 		}
 		for(int i=1;i<r.size();i++){
 			for(int j=1;j<r.get(0).size();j++){
-				int sum = r.get(i).get(j);
-				for(int k=0;k<xMoves.length;k++){					
-					if(i+xMoves[k]<A.size() && j+yMoves[k]<A.get(0).size()){
-						
-					}
-				}
+				int sum = r.get(i).get(j);				
 				sum = sum + r.get(i+xMoves[0]).get(j+yMoves[0]) < sum + r.get(i+xMoves[1]).get(j+yMoves[1]) ? sum + r.get(i+xMoves[0]).get(j+yMoves[0]) : sum + r.get(i+xMoves[1]).get(j+yMoves[1]);
 				r.get(i).set(j, sum);
 			}
