@@ -13,9 +13,9 @@ public class Subtree {
 
 	private boolean checkSubtree(TreeNode n1, TreeNode n2) {
 		// TODO Auto-generated method stub
-		if(n2==null)
+		if(n1==null && n2==null)
 			return true;
-		if(n1==null)
+		if(n1==null || n2==null)
 			return false;
 		if(n1.val!=n2.val)
 			return false;
