@@ -108,9 +108,18 @@ public class AddWithoutPlus {
         return Integer.parseInt(res,2) ;
     }
 
+    int add(int a, int b)
+    {
+        if(b==0)
+            return a;
+        int sum = a ^ b;
+        int carry= (a & b) << 1;
+        return add(sum,carry);
+    }
+
     public static void main(String[] args) {
         AddWithoutPlus ap = new AddWithoutPlus();
-        System.out.println(ap.addWithoutArithmetic(19,17));
+        System.out.println(ap.add(19,17));
     }
 
 }

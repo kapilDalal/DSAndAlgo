@@ -13,10 +13,43 @@ public class MissingNumber {
     /*
     A - 0 to n
     one number missing
-
-
-
     * */
+
+    static class CustomArray{
+        int length;
+        private int[] arr;
+        public CustomArray(int[] arr){
+            this.length = arr.length;
+            this.arr = arr;
+        }
+        public int getBit(int index,int bitNumber){
+            return (this.arr[index]>>bitNumber) & 1;
+        }
+    }
+    public int getMissingNumber(CustomArray arr,int n){
+        int expectedXor = 0;
+        for(int i=0;i<=n;i++)
+            expectedXor ^= i;
+
+        String actualXor = "";
+
+        for(int i=0;i<32;i++){
+            int xor = 0;
+            for(int j=0;j<arr.length;j++){
+                xor = xor ^ arr.getBit(j,i);
+            }
+            actualXor = xor + actualXor;
+        }
+        int aXor = Integer.parseInt(actualXor,2);
+        return expectedXor ^ aXor;
+    }
+
+    public static void main(String[] args) {
+        MissingNumber mn = new MissingNumber();
+        CustomArray arr = new CustomArray(new int[]{0,1,2,3,4});
+        int missingNumber = mn.getMissingNumber(arr, 5);
+        System.out.println(missingNumber);
+    }
 
 
 }
