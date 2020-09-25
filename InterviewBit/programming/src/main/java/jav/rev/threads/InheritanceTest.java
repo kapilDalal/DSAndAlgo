@@ -1,4 +1,4 @@
-package jav.rev;
+package jav.rev.threads;
 
 abstract class Parent{
 	public int kapil=1;

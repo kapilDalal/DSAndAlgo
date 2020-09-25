@@ -1,4 +1,4 @@
-package jav.rev;
+package jav.rev.threads;
 
 public class PrintSequenceUsingThreeThreadsDumbApproach {
 	
