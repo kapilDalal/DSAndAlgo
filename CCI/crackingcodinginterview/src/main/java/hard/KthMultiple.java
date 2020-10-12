@@ -23,18 +23,18 @@ public class KthMultiple {
         while(!pq.isEmpty() && i<index){
             num = pq.poll();
 
-            if(!pq.contains(num*3) && !set.contains(num*3))
+            if(!pq.contains(num*3) )
             {
                 pq.add(num * 3);
                 set.add(num * 3);
             }
-            if(!pq.contains(num*5) && !set.contains(num*5))
+            if(!pq.contains(num*5) )
             {
                 pq.add(num * 5);
                 set.add(num * 5);
             }
 
-            if(!pq.contains(num*7) && !set.contains(num*7))
+            if(!pq.contains(num*7) )
             {
                 pq.add(num * 7);
                 set.add(num * 7);
@@ -47,8 +47,8 @@ public class KthMultiple {
 
     public static void main(String[] args) {
         KthMultiple k =new KthMultiple();
-        for(int i=1;i<=10;i++)
-            k.getKthMultiple(i);
+        //for(int i=1;i<=10;i++)
+            k.getKthMultiple(9);
     }
 
 }

@@ -22,6 +22,8 @@ public class BabyNames {
     * create an adjacency list of equivalent names like in above example,
     * the list would be
     *
+    * John (15), Jon (12), Chris (13), Kris (4), Christopher (19)
+    *
     * Jon   -> John
     * John  -> Jon, Jonny
     * Jonny -> John
@@ -59,28 +61,34 @@ public class BabyNames {
             }
         }
 
-        for(int i=0;i<p1.size();i++)
-            addMatchingWords(p1.get(i),freqMap,adjList,new HashSet<String>());
-
-        Iterator<Map.Entry<String, Integer>> iterator2 = freqMap.entrySet().iterator();
+        HashSet<String> visited  = new HashSet<>();
+        HashMap<String,Integer> res = new HashMap<>();
+        for(int i=0;i<p1.size();i++) {
+            if(!visited.contains(p1.get(i))){
+                int cnt = addMatchingWords(p1.get(i), freqMap, adjList, visited);
+                if(cnt!=0)
+                res.put(p1.get(i),cnt );
+            }
+        }
+        Iterator<Map.Entry<String, Integer>> iterator2 = res.entrySet().iterator();
         while (iterator2.hasNext()) {
             Map.Entry<String, Integer> next = iterator2.next();
             System.out.println(next.getKey() + "\t" + next.getValue());
         }
     }
 
-    private void addMatchingWords(String name,HashMap<String, Integer> freqMap, HashMap<String, ArrayList<String>> adjList, HashSet<String> names) {
+    private int addMatchingWords(String name,HashMap<String, Integer> freqMap, HashMap<String, ArrayList<String>> adjList, HashSet<String> names) {
         if(names.contains(name))
-            return;
+            return 0;
         names.add(name);
         ArrayList<String> synonyms = adjList.get(name);
+        int cnt = 0;
+        cnt += freqMap.get(name);
         for(String s : synonyms){
-            if(freqMap.containsKey(name) && freqMap.containsKey(s)){
-                freqMap.put(name,freqMap.get(name)+freqMap.get(s));
-                freqMap.remove(s);
-            }
-            addMatchingWords(s,freqMap,adjList,names);
+            cnt += addMatchingWords(s,freqMap,adjList,names);;
         }
+        return cnt;
+
     }
 
     public static void main(String[] args) {
@@ -95,8 +103,9 @@ public class BabyNames {
 
 
         HashMap<String,Integer> freq = new HashMap<>();
-        freq.put("John",15);
         freq.put("Jon",12);
+        freq.put("John",15);
+        freq.put("Johnny",10);
         freq.put("Chris",13);
         freq.put("Kris",4);
         freq.put("Christopher",19);
