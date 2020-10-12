@@ -16,7 +16,7 @@ public class Buzz extends Thread{
             synchronized (incrementer) {
 
 
-                while (incrementer.num % 5 != 0 && incrementer.num<=incrementer.end) {
+                while (incrementer.num % 15 == 0  || incrementer.num % 5 != 0 && incrementer.num<=incrementer.end) {
 
                     try {
                         incrementer.wait();

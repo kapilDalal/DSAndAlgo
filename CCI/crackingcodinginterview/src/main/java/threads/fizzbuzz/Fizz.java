@@ -14,7 +14,7 @@ public class Fizz extends Thread{
 
         while(incrementer.num<=incrementer.end) {
             synchronized (incrementer) {
-                while (incrementer.num % 3 != 0 && incrementer.num<=incrementer.end) {
+                while (incrementer.num % 15 == 0  || incrementer.num % 3 != 0 && incrementer.num<=incrementer.end) {
                     try {
                         incrementer.wait();
                     } catch (InterruptedException e) {
